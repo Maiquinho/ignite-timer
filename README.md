@@ -1,4 +1,4 @@
-# Ignite Feed 
+# Ignite Timer 
 
 Projeto desenvolvido no Bootcamp Ignite (trilha 2022) na [Rocketseat](https://www.rocketseat.com.br/) focado em estudar os seguintes conceitos do Reactjs:
 
