@@ -27,12 +27,11 @@ export const HeaderContainer = styled.header`
         border-color 0.2s;
     }
 
-    a:hover,
-    a.active {
+    a:hover {
       border-bottom: 3px solid ${(props) => props.theme['green-500']};
     }
 
-    a.active:hover {
+    a.active {
       color: ${(props) => props.theme['green-500']};
     }
   }
