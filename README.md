@@ -3,14 +3,16 @@
 Projeto desenvolvido no Bootcamp Ignite (trilha 2022) na [Rocketseat](https://www.rocketseat.com.br/) focado em estudar os seguintes conceitos do Reactjs:
 
 
-- CSS in JS
-- Formatação com ESLint
-- Rotas
-- Controlled & Uncontrolled forms
-- useEffect
-- Prop drilling
-- Contextos
-- Reducers
+- Styled Components
+- React Hook Form
+- Zod
+- React Router DOM
+- Context API
+- Hooks
+    - useEffect
+    - useReducer
+- Imutabilidade
+    - Immer
 
 
 ## Used Technologies
