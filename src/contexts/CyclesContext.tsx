@@ -41,9 +41,6 @@ export function CyclesContextProvider({
 }: CyclesContextProviderProps) {
   const [cyclesState, dispatch] = useReducer(
     (state: CyclesState, action: any) => {
-      console.log(state)
-      console.log(action)
-
       switch (action.type) {
         case 'ADD_NEW_CYCLE':
           return {
@@ -57,7 +54,7 @@ export function CyclesContextProvider({
             ...state,
             cycles: state.cycles.map((cycle) => {
               if (cycle.id === state.activeCycleId) {
-                return { ...cycle, finishedDate: new Date() }
+                return { ...cycle, interruptedDate: new Date() }
               } else {
                 return cycle
               }
@@ -66,6 +63,20 @@ export function CyclesContextProvider({
           }
           break
         case 'MARK_CURRENT_CYCLE_AS_FINISHED':
+          return {
+            ...state,
+            cycles: state.cycles.map((cycle) => {
+              if (cycle.id === state.activeCycleId) {
+                return { ...cycle, finishedDate: new Date() }
+              } else {
+                return cycle
+              }
+            }),
+            activeCycleId: null,
+          }
+          break
+        default:
+          return state
           break
       }
 
@@ -94,16 +105,6 @@ export function CyclesContextProvider({
         activeCycleId,
       },
     })
-
-    // setCycles((state) =>
-    //   state.map((cycle) => {
-    //     if (cycle.id === activeCycleId) {
-    //       return { ...cycle, finishedDate: new Date() }
-    //     } else {
-    //       return cycle
-    //     }
-    //   }),
-    // )
   }
 
   function createNewCycle(data: CreateCycleData) {
@@ -123,7 +124,6 @@ export function CyclesContextProvider({
       },
     })
 
-    // setCycles((prevState) => [...prevState, newCycle])
     setAmountSecondsPassed(0)
   }
 
@@ -134,18 +134,6 @@ export function CyclesContextProvider({
         activeCycleId,
       },
     })
-
-    // setCycles((state) =>
-    //   state.map((cycle) => {
-    //     if (cycle.id === activeCycleId) {
-    //       return { ...cycle, interruptedDate: new Date() }
-    //     } else {
-    //       return cycle
-    //     }
-    //   }),
-    // )
-
-    setActiveCycleId(null)
 
     document.title = 'Ignite Timer'
   }
